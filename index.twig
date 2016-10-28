@@ -1,6 +1,8 @@
 {% set title = "Mijn kookboek met verzamelde en eigen recepten." %}
 {% extends 'partials/master.twig' %}
 
+{% setcontent latest = 'recepten' limit 10 orderby '-datechanged' %}
+
 {% block main %}
 
     <article class="home">
@@ -13,13 +15,19 @@
             </section>
         {% endfor %}
 
-
         <section class="search">
             <form method="get" action="{{ paths.root }}search" enctype="text/plain">
                 <input type="text" name="search" placeholder="Waar heb je zin in?" />
                 <i></i>
             </form>
         </section>
+
+        {#<section class="favorite">
+            <hr />
+            <h1>Uitgelichte recepten</h1>
+            {% include 'partials/recipes_grid.twig' with {'records': latest, 'heading': 'Uitgelicht'} %}
+            <hr />
+        </section>#}
 
         <section class="catsAndTags">
             <div>
@@ -50,7 +58,6 @@
             </div>
         </section>
 
-        {% setcontent latest = 'recepten' limit 10 orderby '-datechanged' %}
         <section class="latest">
             <h1>Laatste recepten</h1>
             <div class="listing">

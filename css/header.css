@@ -51,7 +51,7 @@ header > .container.title > .inner .title-block {
   font-weight: 300;
 }
 header > .container.title h1 {
-  font-size: 3vw;
+  font-size: 3rem;
   line-height: 1.2em;
 }
 header > .container.title ul.post-meta li.category {
@@ -69,21 +69,16 @@ header label.menu-toggle {
   border-right: solid 1px #bdcbd1;
   cursor: pointer;
 }
-header label.menu-toggle > div {
-  box-sizing: border-box;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1rem;
-}
-header label.menu-toggle > div:after {
+header label.menu-toggle:after {
   content: '\e5d2';
   font-family: "Material Icons";
   color: #648391;
   font-size: 1.5rem;
   line-height: 1.5rem;
   transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
 }
 header label.menu-toggle nav {
   box-sizing: border-box;

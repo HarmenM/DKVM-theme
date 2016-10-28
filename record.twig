@@ -1,8 +1,17 @@
-{% set title = record.title %}
 {% extends 'partials/master.twig' %}
+
+{% set title = record.title %}
+{% set image = record.image %}
 
 {% block main %}
     <article class="post">
+        <div class="post-date">
+            Geplaatst op:
+            <time  datetime="{{ record.datecreated|date('Y-m-d')}}">
+                {{ record.datecreated|localedatetime('%A %e %B %Y')|capitalize}}
+            </time>
+        </div>
+
         {% if record.ingredients is not empty %}
             <aside class="ingredients">
                 <hr />
@@ -13,13 +22,6 @@
                 <hr />
             </aside>
         {% endif %}
-
-        <div class="post-date">
-            Geplaatst op:
-            <time  datetime="{{ record.datecreated|date('Y-m-d')}}">
-                {{ record.datecreated|localedatetime('%A %e %B %Y')|capitalize}}
-            </time>
-        </div>
 
         {{ record.body }}
 

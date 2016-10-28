@@ -77,9 +77,8 @@ header
 
     h1
     {
-      //@include responsive-font(3vw, 20px, 50px);
+      font-size: 3rem;
 
-      font-size: 3vw;
       line-height: 1.2em;
     }
 
@@ -113,24 +112,17 @@ header
 
     cursor: pointer;
 
-    > div
+    &:after
     {
-      box-sizing: border-box;
-      position: absolute;
+      content: '\e5d2';
+      font-family: "Material Icons";
+      color: @menu-items-color;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1rem;
-
-      &:after
-      {
-        content: '\e5d2';
-        font-family: "Material Icons";
-        color: @menu-items-color;
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-        transform: translate(-50%, -50%);
-      }
+      position: absolute;
     }
 
     nav

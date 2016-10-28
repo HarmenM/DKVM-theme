@@ -1,8 +1,11 @@
 {% set title = __('Zoekresultaten voor: %search%', { '%search%': search }) %}
 {% extends 'partials/master.twig' %}
 
-{% block main %}
+{% if records[0].image is not empty %}
+    {% set image = records[0].image %}
+{% endif %}
 
+{% block main %}
     <div class="listing">
         {% for record in records %}
             {{ include("partials/listing_item.twig") }}
@@ -12,6 +15,6 @@
             </div>
         {% endfor %}
     </div>
-    {{ pager(template = 'partials/pagination.twig') }}
 
+    {{ pager(template = 'partials/pagination.twig') }}
 {% endblock main %}

@@ -26,7 +26,7 @@ article.home
   {
     > h1
     {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -110,11 +110,11 @@ article.home
 
       ul
       {
-        overflow: hidden;
+        display: flex;
+        flex-flow: row wrap;
 
         > li
         {
-          float: left;
           margin-right: 1em;
           margin-bottom: 1em;
 
@@ -126,6 +126,11 @@ article.home
             color: @background-color;
             border-radius: .3em;
             text-decoration: none;
+
+            &:hover
+            {
+              box-shadow: 0 0 .5em 0 rgba(0, 0, 0, .5);
+            }
           }
         }
       }

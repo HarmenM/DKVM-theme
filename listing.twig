@@ -1,31 +1,45 @@
-{%- if taxonomytype is defined and taxonomy.options[slug|lower] is defined %}
-    {% set title = taxonomy.options[slug|lower] -%}
+{% if taxonomytype == 'categories' %}
+    {% set title = "Recepten in categorie: " ~ taxonomy.options[(slug|slug)] -%}
     {% set label = taxonomy.options[slug|lower] -%}
-{%- elseif taxonomytype is defined %}
-    {% set title = slug -%}
+{%- elseif taxonomytype == 'tags' %}
+    {% set title = "Recepten met tag: " ~ slug -%}
     {% set label = slug -%}
 {% endif %}
 {% extends 'partials/master.twig' %}
 
+{% setcontent header = 'blocks/' ~ (slug|slug)%}
+{% if header is not empty %}
+    {% set image = header.image %}
+{% elseif records[0].image is not empty %}
+    {% set image = records[0].image %}
+{% endif %}
+
+{% if taxonomytype is defined %}
+    {% if not taxonomy.has_sortorder %}
+        {% set records = records|order(app.config.get('general/listing_sort')) %}
+    {% endif %}
+{% endif %}
+
 {% block main %}
-    {% if taxonomytype is defined %}
-        {% if not taxonomy.has_sortorder %}
-            {% set records = records|order(app.config.get('general/listing_sort')) %}
-        {% endif %}
+    {% if header.content is not empty %}
+    <article class="introduction">
+        {{ header.content }}
+    </article>
     {% endif %}
 
     <div class="listing">
         {% for record in records %}
             {{ include("partials/listing_item.twig") }}
         {% else %}
-        <div class="noResults">
-            {% if taxonomytype == 'categories' %}
-                {{ __('Helaas, er is niets aanwezig in de categorie "%label%".', {'%label%': label}) }}
-            {% else %}
-                {{ __('Helaas, er zijn geen items gevonden.') }}
-            {% endif %}
-        </div>
+            <div class="noResults">
+                {% if taxonomytype == 'categories' %}
+                    {{ __('Helaas, er is niets aanwezig in de categorie "%label%".', {'%label%': label}) }}
+                {% else %}
+                    {{ __('Helaas, er zijn geen items gevonden.') }}
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
+
     {{ pager(template = 'partials/pagination.twig') }}
 {% endblock main %}

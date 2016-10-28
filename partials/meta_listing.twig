@@ -6,7 +6,7 @@
     {% endif %}
     {% if record.taxonomy.tags is defined %}
         {% for tag in record.taxonomy.tags %}
-            <li class="tag"><a href="/tags/{{ tag|slug }}" title="Bekijk alle recepten getagd met {{ tag }}">{{ tag }}</a></li>
+            <li class="tag"><a href="/tags/{{ tag }}" title="Bekijk alle recepten getagd met {{ tag }}">{{ tag }}</a></li>
         {% endfor %}
     {% endif %}
 </ul>

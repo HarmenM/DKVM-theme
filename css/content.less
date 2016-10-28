@@ -46,6 +46,7 @@ article
   p
   {
     margin: 1em 0;
+    text-align: justify;
 
     + ul, + ol
     {
@@ -106,13 +107,18 @@ article
 
   aside.ingredients
   {
-    float: right;
-    max-width: 20rem;
-
-    margin-left: @vertical-margin;
+    margin-top: @vertical-margin;
     margin-bottom: @vertical-margin;
-
     background: darken(@background-color, 2%);
+
+    @media(min-width:500px)
+    {
+      float: right;
+      max-width: 20rem;
+
+      margin-top: 0;
+      margin-left: @vertical-margin;
+    }
 
     > h1
     {
@@ -208,6 +214,13 @@ article.post
   }
 }
 
+article.introduction
+{
+  margin: @vertical-margin * 1.4 0;
+  font-size: 1.4em;
+  //color: fade(@text-color, 70%);
+}
+
 ul.post-meta
 {
   overflow: hidden;
@@ -229,14 +242,24 @@ ul.post-meta
 
     &.tag
     {
+      position: relative;
       padding-right: .5em;
+      padding-left: 1.3em;
 
       &:before
       {
+        position: absolute;
         font-family: "Material Icons";
         content: '\e892';
-        padding-right: .3em;
+        left: 0;
       }
     }
   }
+}
+
+.noResults
+{
+  opacity: .5;
+  font-size: 1.5rem;
+  line-height: 2.0rem;
 }

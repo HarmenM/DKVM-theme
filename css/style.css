@@ -50,7 +50,7 @@ textarea {
 .container > .inner {
   margin: 0 auto;
   max-width: 60rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 main {
   margin: 2rem 0;
@@ -79,6 +79,18 @@ footer {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   text-align: center;
   color: rgba(41, 47, 51, 0.75);
+}
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+footer .cc {
+  display: inline-block;
+  background-image: url("../img/cc.svg");
+  background-size: cover;
+  width: 1em;
+  height: 1em;
+  transform: translateY(2px);
 }
 header > .container.top {
   height: 3.5rem;
@@ -133,7 +145,7 @@ header > .container.title > .inner .title-block {
   font-weight: 300;
 }
 header > .container.title h1 {
-  font-size: 3vw;
+  font-size: 3rem;
   line-height: 1.2em;
 }
 header > .container.title ul.post-meta li.category {
@@ -151,21 +163,16 @@ header label.menu-toggle {
   border-right: solid 1px #bdcbd1;
   cursor: pointer;
 }
-header label.menu-toggle > div {
-  box-sizing: border-box;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1rem;
-}
-header label.menu-toggle > div:after {
+header label.menu-toggle:after {
   content: '\e5d2';
   font-family: "Material Icons";
   color: #648391;
   font-size: 1.5rem;
   line-height: 1.5rem;
   transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
 }
 header label.menu-toggle nav {
   box-sizing: border-box;
@@ -349,6 +356,7 @@ article h3 {
 }
 article p {
   margin: 1em 0;
+  text-align: justify;
 }
 article p + ul,
 article p + ol {
@@ -389,11 +397,17 @@ article img {
   border: 0;
 }
 article aside.ingredients {
-  float: right;
-  max-width: 20rem;
-  margin-left: 2rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   background: #efefef;
+}
+@media (min-width: 500px) {
+  article aside.ingredients {
+    float: right;
+    max-width: 20rem;
+    margin-top: 0;
+    margin-left: 2rem;
+  }
 }
 article aside.ingredients > h1 {
   line-height: 1em;
@@ -458,6 +472,10 @@ article.post ul li:before {
   position: absolute;
   margin-left: -1em;
 }
+article.introduction {
+  margin: 2.8rem 0;
+  font-size: 1.4em;
+}
 ul.post-meta {
   overflow: hidden;
 }
@@ -472,12 +490,20 @@ ul.post-meta li > a:hover {
   text-decoration: underline;
 }
 ul.post-meta li.tag {
+  position: relative;
   padding-right: .5em;
+  padding-left: 1.3em;
 }
 ul.post-meta li.tag:before {
+  position: absolute;
   font-family: "Material Icons";
   content: '\e892';
-  padding-right: .3em;
+  left: 0;
+}
+.noResults {
+  opacity: .5;
+  font-size: 1.5rem;
+  line-height: 2.0rem;
 }
 .listing > article:after {
   content: '';
@@ -538,11 +564,11 @@ ul.post-meta li.tag:before {
 .listing > article > ul.post-meta li.tag:before {
   color: #455a64;
 }
-.listing .noResults {
+.resultsCount {
+  text-align: right;
+  margin: 2rem 0;
   opacity: .5;
-  font-size: 2rem;
-  line-height: 2.5rem;
-  padding: 2rem 0;
+  font-style: italic;
 }
 div.recipe-thumb {
   position: relative;
@@ -576,7 +602,7 @@ section.recipes-grid {
 }
 section.recipes-grid > h1 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 section.recipes-grid > ul {
   display: flex;
@@ -702,7 +728,7 @@ article.home section > h1 {
   margin-bottom: .5em;
 }
 article.home > section:first-child > h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -763,10 +789,10 @@ article.home section.catsAndTags > div:last-child {
   padding-left: 2em;
 }
 article.home section.catsAndTags > div ul {
-  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
 }
 article.home section.catsAndTags > div ul > li {
-  float: left;
   margin-right: 1em;
   margin-bottom: 1em;
 }
@@ -777,4 +803,7 @@ article.home section.catsAndTags > div ul > li > a {
   color: #f4f4f4;
   border-radius: .3em;
   text-decoration: none;
+}
+article.home section.catsAndTags > div ul > li > a:hover {
+  box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.5);
 }

@@ -57,9 +57,9 @@
 .listing > article > ul.post-meta li.tag:before {
   color: #455a64;
 }
-.listing .noResults {
+.resultsCount {
+  text-align: right;
+  margin: 2rem 0;
   opacity: .5;
-  font-size: 2rem;
-  line-height: 2.5rem;
-  padding: 2rem 0;
+  font-style: italic;
 }

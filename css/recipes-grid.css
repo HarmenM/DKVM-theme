@@ -3,7 +3,7 @@ section.recipes-grid {
 }
 section.recipes-grid > h1 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 section.recipes-grid > ul {
   display: flex;
