@@ -2,12 +2,12 @@
 {% extends 'partials/master.twig' %}
 
 {% setcontent latest = 'recepten' limit 10 orderby '-datechanged' %}
+{% setcontent featured = 'recepten' where { groups: 'featured' }  %}
+{% setcontent records = 'pages' where { groups: 'home' } %}
 
 {% block main %}
 
     <article class="home">
-        {% setcontent records = 'pages' where { groups: 'home' } %}
-
         {% for record in records %}
             <section>
                 <h1>{{ record.title }}</h1>
@@ -22,12 +22,7 @@
             </form>
         </section>
 
-        {#<section class="favorite">
-            <hr />
-            <h1>Uitgelichte recepten</h1>
-            {% include 'partials/recipes_grid.twig' with {'records': latest, 'heading': 'Uitgelicht'} %}
-            <hr />
-        </section>#}
+        {% include 'partials/recipes_grid.twig' with {'records': featured, 'heading': 'Uitgelichte recepten', 'class': 'featured'} %}
 
         <section class="catsAndTags">
             <div>

@@ -90,3 +90,6 @@ article.home section.catsAndTags > div ul > li > a {
 article.home section.catsAndTags > div ul > li > a:hover {
   box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.5);
 }
+article.home section.recipes-grid.featured > ul {
+  justify-content: center;
+}

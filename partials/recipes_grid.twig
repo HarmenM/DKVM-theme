@@ -1,4 +1,4 @@
-<section class="recipes-grid">
+<section class="recipes-grid{% if class is defined %} {{ class }}{% endif %}">
     <h1>{{ heading }}</h1>
     <ul>
     {% for record in records %}
