@@ -1,0 +1,12 @@
+<ul class="post-meta">
+    {% if record.taxonomy.categories is defined %}
+        {% for category in record.taxonomy.categories %}
+            <li class="category"><a href="/categories/{{ category | slug }}" title="Bekijk all recepten in categorie {{ category }}">{{ category }}</a></li>
+        {% endfor %}
+    {% endif %}
+    {% if record.taxonomy.tags is defined %}
+        {% for tag in record.taxonomy.tags %}
+            <li class="tag"><a href="/tags/{{ tag|slug }}" title="Bekijk alle recepten getagd met {{ tag }}">{{ tag }}</a></li>
+        {% endfor %}
+    {% endif %}
+</ul>

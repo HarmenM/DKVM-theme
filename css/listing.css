@@ -1,0 +1,65 @@
+.listing > article:after {
+  content: '';
+  display: block;
+  border-bottom: solid 1px rgba(160, 160, 160, 0.3);
+  height: 0;
+  clear: both;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+.listing > article:last-child:after {
+  border-bottom: 0;
+}
+.listing > article:hover div.recipe-thumb > div {
+  transform: scale(1.1) rotate(-2.5deg);
+}
+.listing > article > a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.listing > article > a > div.recipe-thumb {
+  width: 200px;
+  float: left;
+  margin-right: 2rem;
+  box-sizing: content-box;
+}
+.listing > article > a > div.recipe-thumb > div.none:after {
+  font-size: 5rem;
+}
+.listing > article > a > h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+.listing > article > a > h1:hover {
+  text-decoration: underline;
+}
+.listing > article > a > div.teaser {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.listing > article > a > div.teaser > *:first-child {
+  margin-top: 0;
+}
+.listing > article > a > div.teaser > *:last-child {
+  margin-bottom: 0;
+}
+.listing > article > ul.post-meta {
+  font-style: italic;
+  opacity: .75;
+}
+.listing > article > ul.post-meta li.category {
+  margin-right: .5em;
+}
+.listing > article > ul.post-meta li.category:first-child:before {
+  content: "Categorie: ";
+}
+.listing > article > ul.post-meta li.tag:before {
+  color: #455a64;
+}
+.listing .noResults {
+  opacity: .5;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  padding: 2rem 0;
+}

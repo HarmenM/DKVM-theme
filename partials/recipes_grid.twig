@@ -1,0 +1,20 @@
+<section class="recipes-grid">
+    <h1>{{ heading }}</h1>
+    <ul>
+    {% for record in records %}
+        <li>
+            <a href="{{ record.link }}">
+                <div class="recipe-thumb">
+                    {% if record.image is not empty %}
+                        <div style="background-image: url('{{ record.image|thumbnail(350, 250 ) }}')"></div>
+                    {% else %}
+                        <div class="none"></div>
+                    {% endif %}
+                </div>
+
+                <div>{{ record.title }}</div>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</section>

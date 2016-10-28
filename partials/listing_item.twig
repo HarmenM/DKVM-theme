@@ -1,0 +1,22 @@
+<article>
+    <a href="{{ record.link }}">
+        <div class="recipe-thumb">
+            {% if record.image is not empty %}
+                <div style="background-image: url('{{ record.image|thumbnail(200, 150 ) }}')"></div>
+            {% else %}
+                <div class="none"></div>
+            {% endif %}
+        </div>
+        <h1>{{ record.title }}</h1>
+        <div class="post-date">
+            Geplaatst op:
+            <time  datetime="{{ record.datecreated|date('Y-m-d')}}">
+                {{ record.datecreated|localedatetime('%A %e %B %Y')|capitalize}}
+            </time>
+        </div>
+        {% if record.teaser is not empty %}
+            <div class="teaser">{{ record.teaser }}</div>
+        {% endif %}
+    </a>
+    {{ include('partials/meta_listing.twig') }}
+</article>

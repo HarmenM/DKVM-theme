@@ -1,0 +1,36 @@
+{%- if title is empty -%}
+{% set title = app.config.get('general/sitename') -%}
+{%- endif -%}
+<!doctype html>
+<html lang="{{ htmllang() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="{{ paths.theme }}css/style.css">
+        {% block headincludes %}
+        {% endblock headincludes %}
+    </head>
+    <body>
+        {% block body %}
+        <header>
+            {{ include('partials/topbar.twig') }}
+            {{ include('partials/header.twig') }}
+        </header>
+
+        <main class="container">
+            <div class="inner">
+                {{ dinges }}
+                {% block main %}
+                {% endblock main %}
+            </div>
+        </main>
+        {% endblock body %}
+
+        {{ include('partials/footer.twig') }}
+
+        {% block bottomincludes %}
+        {% endblock bottomincludes %}
+    </body>
+</html>

@@ -1,0 +1,63 @@
+{% set title = "Mijn kookboek met verzamelde en eigen recepten." %}
+{% extends 'partials/master.twig' %}
+
+{% block main %}
+
+    <article class="home">
+        {% setcontent records = 'pages' where { groups: 'home' } %}
+
+        {% for record in records %}
+            <section>
+                <h1>{{ record.title }}</h1>
+                {{ record.body }}
+            </section>
+        {% endfor %}
+
+
+        <section class="search">
+            <form method="get" action="{{ paths.root }}search" enctype="text/plain">
+                <input type="text" name="search" placeholder="Waar heb je zin in?" />
+                <i></i>
+            </form>
+        </section>
+
+        <section class="catsAndTags">
+            <div>
+                {% set list = taxonomylist('categories') %}
+                <h1>Categorie&euml;n</h1>
+                <ul>
+                    {% for item in list %}
+                        <li>
+                            <a href="{{ item.link }}" title="Bekijk alle recepten in {{ item.name }}">
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                {% set list = taxonomylist('tags') %}
+                <h1>Tags</h1>
+                <ul>
+                    {% for item in list %}
+                        <li>
+                            <a href="{{ item.link }}" title="Bekijk alle recepten getagd met {{ item.name }}">
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        {% setcontent latest = 'recepten' limit 10 orderby '-datechanged' %}
+        <section class="latest">
+            <h1>Laatste recepten</h1>
+            <div class="listing">
+                {% for record in latest %}
+                    {{ include("partials/listing_item.twig") }}
+                {% endfor %}
+            </div>
+        </section>
+    </article>
+{% endblock main %}

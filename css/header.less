@@ -1,0 +1,318 @@
+@import "variables";
+
+header
+{
+  > .container.top
+  {
+    height: @menu-height;
+    background: white;
+
+    border-bottom: solid 1px lighten(@menu-items-color, 30%);
+
+    > .inner
+    {
+      padding: 0 @menu-height*2+1rem; //make some extra space for the buttons
+    }
+
+    a.site-title
+    {
+      display: block;
+      height: @menu-height;
+      line-height: @menu-height;
+      color: @title-color;
+      text-decoration: none;
+      font-size: 1.4em;
+      overflow: hidden;
+
+      span + span
+      {
+        opacity: .7;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  > .container.title
+  {
+    position: relative;
+    height: 50vh;
+    min-height: 7rem;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-position-y: 70%;
+
+    text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
+
+    border-bottom: solid 1px lighten(@menu-items-color, 30%);
+
+    &:before
+    {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 50%,rgba(0,0,0, .7) 100%);
+    }
+
+    > .inner
+    {
+      position: relative;
+      height: 100%;
+
+      .title-block
+      {
+        position: absolute;
+        bottom: 1.5rem;
+
+        font-family: 'Roboto Slab', serif;
+        color: white;
+        font-weight: 300;
+      }
+    }
+
+    h1
+    {
+      //@include responsive-font(3vw, 20px, 50px);
+
+      font-size: 3vw;
+      line-height: 1.2em;
+    }
+
+    ul.post-meta
+    {
+      //@include responsive-font(1vw, 14px, 50px);
+
+      li
+      {
+        &.category
+        {
+          margin-right: 1em;
+        }
+
+        &.tag
+        {
+          padding-right: .5em;
+        }
+      }
+    }
+  }
+
+  label.menu-toggle
+  {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: @menu-height;
+    height: @menu-height;
+    border-right: solid 1px lighten(@menu-items-color, 30%);
+
+    cursor: pointer;
+
+    > div
+    {
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1rem;
+
+      &:after
+      {
+        content: '\e5d2';
+        font-family: "Material Icons";
+        color: @menu-items-color;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    nav
+    {
+      box-sizing: border-box;
+      position: fixed;
+
+      background: #212121;
+      box-shadow: 0 0 5em 0 rgba(0,0,0,0.75);
+      color: white;
+      cursor: default;
+
+      left: -25em;
+      top: 0;
+      bottom: 0;
+      width: 20em;
+      transition: left .35s;
+
+      z-index: 22;
+
+      padding: 1.5em 0;
+
+      &:before
+      {
+        content: '';
+        position: fixed;
+        width: 0;
+        height: 0;
+        background: rgba(0,0,0,0);
+        transition: all .35s;
+
+        z-index: -1;
+      }
+
+      li
+      {
+        a
+        {
+          display: block;
+          padding: .5em 2em;
+          color: white;
+          text-decoration: none;
+          position: relative;
+
+          &:after
+          {
+            //  content: '';
+            position: absolute;
+            bottom: 0;
+            left: 2em;
+            right: 2em;
+            height: 1px;
+            background: white;
+          }
+
+          &:hover
+          {
+            background: white;
+            color: @text-color;
+          }
+
+          &.divider
+          {
+            height: 0;
+            border-bottom: 1px solid rgba(255,255,255, .1);
+            margin: .2rem 0; //Don't use em, because of font-size ;-)
+            padding: 0;
+            overflow: hidden;
+            font-size: 0;
+            color: transparent;
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    input
+    {
+      display: none;
+    }
+
+    input:checked ~ nav
+    {
+      left: 0;
+
+      &:before
+      {
+        display: block;
+        content: '';
+        position: fixed;
+        width: auto;
+        height: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,.25);
+      }
+    }
+  }
+
+  input[type=text]
+  {
+    position: absolute;
+    top: 0;
+    left: @menu-height;
+    background: transparent;
+    box-sizing: border-box;
+    width: @menu-height;
+    height: @menu-height;
+    border: 0;
+    border-right: solid 1px lighten(@menu-items-color, 30%);
+
+    padding-left: @menu-height;
+
+    cursor: pointer;
+    color: transparent;
+    transition: width .4s, background .4s, color .4s;
+
+    outline: none;
+    z-index: 10;
+
+    + i
+    {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: @menu-height;
+      width: @menu-height;
+      height: @menu-height;
+
+      z-index: 9;
+
+      &:after
+      {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-family: "Material Icons";
+        content: '\e8b6';
+        color: @menu-items-color;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:focus
+    {
+      width: ~"calc(100% - @{menu-height})";
+
+      //width: 10rem;
+      background: rgba(255,255,255,1);
+      color: @text-color;
+      //text-align: center;
+      border-left: 1px solid lighten(@menu-items-color, 30%);
+      text-indent: 0;
+
+      + i
+      {
+        z-index: 10
+      }
+    }
+  }
+
+  .image-credits
+  {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: .7rem;
+    opacity: .7;
+    font-style: italic;
+    color: white;
+
+    text-shadow: 2px 2px 6px rgba(15, 15, 15, .6);
+
+
+    a
+    {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="container title" {% if record.image is defined %}style="background-image: url('{{ record.image|thumbnail(1920, 0) }}')" {% endif %}>
+    <div class="inner">
+        <div class="title-block">
+            {{ include('partials/meta_listing.twig') }}
+            <h1 class="post-title">{{ title }}</h1>
+        </div>
+    </div>
+    {% if record.imagecredits %}
+        <div class="image-credits">{{ record.imagecredits }}</div>
+    {% endif %}
+</div>

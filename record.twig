@@ -1,0 +1,34 @@
+{% set title = record.title %}
+{% extends 'partials/master.twig' %}
+
+{% block main %}
+    <article class="post">
+        {% if record.ingredients is not empty %}
+            <aside class="ingredients">
+                <hr />
+                <h1>Ingredi&euml;nten</h1>
+                <div class="inner">
+                    {{ record.ingredients }}
+                </div>
+                <hr />
+            </aside>
+        {% endif %}
+
+        <div class="post-date">
+            Geplaatst op:
+            <time  datetime="{{ record.datecreated|date('Y-m-d')}}">
+                {{ record.datecreated|localedatetime('%A %e %B %Y')|capitalize}}
+            </time>
+        </div>
+
+        {{ record.body }}
+
+        {% if record.recipecredits is not empty %}
+            <div class="recipe-credits">{{ record.recipecredits }}</div>
+        {% endif %}
+    </article>
+    {% set related = record.related() %}
+    {% if related is not empty %}
+        {% include 'partials/recipes_grid.twig' with {'records': related, 'heading': 'Ben je misschien ook geinteresseerd in?'} %}
+    {% endif %}
+{% endblock main %}

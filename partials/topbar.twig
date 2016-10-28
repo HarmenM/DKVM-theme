@@ -1,0 +1,18 @@
+<div class="container top">
+
+    <div class="inner">
+        <label class="menu-toggle">
+            <input type="checkbox" />
+            <div></div>
+
+            {{ menu('main') }}
+        </label>
+
+        <form method="get" action="{{ paths.root }}search" enctype="text/plain">
+            <input type="text" name="search" placeholder="Zoek een recept..." />
+            <i></i>
+        </form>
+
+        <a href="{{ paths.root }}" class="site-title"><span>{{ app.config.get('general/sitename') }}</span><span> | {{ app.config.get('general/payoff') }}</span></a>
+    </div>
+</div>

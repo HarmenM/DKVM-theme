@@ -1,0 +1,89 @@
+article.home section {
+  margin: 2em 0;
+}
+article.home section:first-child {
+  margin-top: 0;
+}
+article.home section:last-child {
+  margin-bottom: 0;
+}
+article.home section > h1 {
+  margin-bottom: .5em;
+}
+article.home > section:first-child > h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+article.home > section:first-child > p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+article.home > section.search {
+  position: relative;
+}
+article.home > section.search input {
+  display: block;
+  font-size: 1.4rem;
+  width: 100%;
+  text-align: center;
+  padding: .5rem;
+  box-sizing: border-box;
+}
+article.home > section.search input + i {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 1rem;
+  width: 1.4rem;
+}
+article.home > section.search input + i:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: "Material Icons";
+  content: '\e8b6';
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  transform: translate(-50%, -50%);
+}
+article.home section.catsAndTags {
+  display: table;
+  width: 100%;
+}
+article.home section.catsAndTags > div {
+  width: 50%;
+  box-sizing: border-box;
+  height: 100%;
+  display: table-cell;
+  padding: .5em 0;
+}
+article.home section.catsAndTags > div > h1 {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: .5em;
+}
+article.home section.catsAndTags > div:first-child {
+  border-right: 1px solid rgba(160, 160, 160, 0.3);
+  padding-right: 2em;
+}
+article.home section.catsAndTags > div:last-child {
+  padding-left: 2em;
+}
+article.home section.catsAndTags > div ul {
+  overflow: hidden;
+}
+article.home section.catsAndTags > div ul > li {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+article.home section.catsAndTags > div ul > li > a {
+  display: inline-block;
+  padding: .3em .8em;
+  background: #263238;
+  color: #f4f4f4;
+  border-radius: .3em;
+  text-decoration: none;
+}

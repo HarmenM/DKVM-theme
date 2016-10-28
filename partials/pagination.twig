@@ -1,0 +1,22 @@
+{% set link = pager.makelink() %}
+
+{% if pager.totalpages > 1 %}
+<section class="pagination {{class}}">
+  <ul>
+
+    <li class="previous {% if pager.current <= 1 %}disabled{% endif %}">
+        <a href="{{link}}{{pager.current-1}}" rel="noindex, follow">Vorige</a>
+    </li>
+
+    {% for i in 1..pager.totalpages %}
+        <li class="page {% if i==pager.current %}active{%endif%}">
+            <a href="{{link}}{{i}}" rel="noindex, follow">{{i}}</a>
+        </li>
+    {% endfor %}
+
+    <li class="next {% if pager.current >= pager.totalpages %}disabled{% endif %}">
+        <a href="{{link}}{{pager.current+1}}" rel="noindex, follow">Volgende</a>
+    </li>
+  </ul>
+</section>
+{% endif %}

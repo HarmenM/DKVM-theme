@@ -1,0 +1,17 @@
+{% set title = __('Zoekresultaten voor: %search%', { '%search%': search }) %}
+{% extends 'partials/master.twig' %}
+
+{% block main %}
+
+    <div class="listing">
+        {% for record in records %}
+            {{ include("partials/listing_item.twig") }}
+        {% else %}
+            <div class="noResults">
+            {{ __('Helaas, er is niets gevonden voor "%SEARCHTERM%".', { '%SEARCHTERM%': search|escape }) }}
+            </div>
+        {% endfor %}
+    </div>
+    {{ pager(template = 'partials/pagination.twig') }}
+
+{% endblock main %}

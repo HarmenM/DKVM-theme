@@ -1,0 +1,219 @@
+header > .container.top {
+  height: 3.5rem;
+  background: white;
+  border-bottom: solid 1px #bdcbd1;
+}
+header > .container.top > .inner {
+  padding: 0 8rem;
+}
+header > .container.top a.site-title {
+  display: block;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  color: #455a64;
+  text-decoration: none;
+  font-size: 1.4em;
+  overflow: hidden;
+}
+header > .container.top a.site-title span + span {
+  opacity: .7;
+  white-space: nowrap;
+}
+header > .container.title {
+  position: relative;
+  height: 50vh;
+  min-height: 7rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-position-y: 70%;
+  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
+  border-bottom: solid 1px #bdcbd1;
+}
+header > .container.title:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+}
+header > .container.title > .inner {
+  position: relative;
+  height: 100%;
+}
+header > .container.title > .inner .title-block {
+  position: absolute;
+  bottom: 1.5rem;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  font-weight: 300;
+}
+header > .container.title h1 {
+  font-size: 3vw;
+  line-height: 1.2em;
+}
+header > .container.title ul.post-meta li.category {
+  margin-right: 1em;
+}
+header > .container.title ul.post-meta li.tag {
+  padding-right: .5em;
+}
+header label.menu-toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-right: solid 1px #bdcbd1;
+  cursor: pointer;
+}
+header label.menu-toggle > div {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+}
+header label.menu-toggle > div:after {
+  content: '\e5d2';
+  font-family: "Material Icons";
+  color: #648391;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  transform: translate(-50%, -50%);
+}
+header label.menu-toggle nav {
+  box-sizing: border-box;
+  position: fixed;
+  background: #212121;
+  box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.75);
+  color: white;
+  cursor: default;
+  left: -25em;
+  top: 0;
+  bottom: 0;
+  width: 20em;
+  transition: left .35s;
+  z-index: 22;
+  padding: 1.5em 0;
+}
+header label.menu-toggle nav:before {
+  content: '';
+  position: fixed;
+  width: 0;
+  height: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: all .35s;
+  z-index: -1;
+}
+header label.menu-toggle nav li a {
+  display: block;
+  padding: .5em 2em;
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+header label.menu-toggle nav li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 2em;
+  right: 2em;
+  height: 1px;
+  background: white;
+}
+header label.menu-toggle nav li a:hover {
+  background: white;
+  color: #212121;
+}
+header label.menu-toggle nav li a.divider {
+  height: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: .2rem 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 0;
+  color: transparent;
+  cursor: default;
+}
+header label.menu-toggle input {
+  display: none;
+}
+header label.menu-toggle input:checked ~ nav {
+  left: 0;
+}
+header label.menu-toggle input:checked ~ nav:before {
+  display: block;
+  content: '';
+  position: fixed;
+  width: auto;
+  height: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+header input[type=text] {
+  position: absolute;
+  top: 0;
+  left: 3.5rem;
+  background: transparent;
+  box-sizing: border-box;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0;
+  border-right: solid 1px #bdcbd1;
+  padding-left: 3.5rem;
+  cursor: pointer;
+  color: transparent;
+  transition: width .4s, background .4s, color .4s;
+  outline: none;
+  z-index: 10;
+}
+header input[type=text] + i {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  z-index: 9;
+}
+header input[type=text] + i:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: "Material Icons";
+  content: '\e8b6';
+  color: #648391;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  transform: translate(-50%, -50%);
+}
+header input[type=text]:focus {
+  width: calc(100% - 3.5rem);
+  background: #ffffff;
+  color: #212121;
+  border-left: 1px solid #bdcbd1;
+  text-indent: 0;
+}
+header input[type=text]:focus + i {
+  z-index: 10;
+}
+header .image-credits {
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  font-size: .7rem;
+  opacity: .7;
+  font-style: italic;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.6);
+}
+header .image-credits a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,31 @@
+{%- if taxonomytype is defined and taxonomy.options[slug|lower] is defined %}
+    {% set title = taxonomy.options[slug|lower] -%}
+    {% set label = taxonomy.options[slug|lower] -%}
+{%- elseif taxonomytype is defined %}
+    {% set title = slug -%}
+    {% set label = slug -%}
+{% endif %}
+{% extends 'partials/master.twig' %}
+
+{% block main %}
+    {% if taxonomytype is defined %}
+        {% if not taxonomy.has_sortorder %}
+            {% set records = records|order(app.config.get('general/listing_sort')) %}
+        {% endif %}
+    {% endif %}
+
+    <div class="listing">
+        {% for record in records %}
+            {{ include("partials/listing_item.twig") }}
+        {% else %}
+        <div class="noResults">
+            {% if taxonomytype == 'categories' %}
+                {{ __('Helaas, er is niets aanwezig in de categorie "%label%".', {'%label%': label}) }}
+            {% else %}
+                {{ __('Helaas, er zijn geen items gevonden.') }}
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {{ pager(template = 'partials/pagination.twig') }}
+{% endblock main %}
