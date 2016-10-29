@@ -1,0 +1,245 @@
+@charset "utf-8";
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:400,400i,700|Material+Icons';
+@import "reset.css";
+article > .container {
+  overflow: hidden;
+}
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  font-family: 'Roboto Slab', serif;
+  line-height: 1.2em;
+  font-weight: 300;
+  color: #263238;
+}
+article h1 + p,
+article h2 + p,
+article h3 + p,
+article h4 + p,
+article h5 + p,
+article h6 + p {
+  margin-top: 0;
+}
+article h1 + ul,
+article h2 + ul,
+article h3 + ul,
+article h4 + ul,
+article h5 + ul,
+article h6 + ul,
+article h1 + ol,
+article h2 + ol,
+article h3 + ol,
+article h4 + ol,
+article h5 + ol,
+article h6 + ol {
+  margin-top: 0;
+}
+article h1 {
+  font-size: 2rem;
+  margin-top: .6em;
+}
+article h2 {
+  font-size: 1.4rem;
+  margin-top: .4em;
+}
+article h3 {
+  font-size: 1.2rem;
+  margin-top: .2em;
+}
+article p {
+  margin: 1em 0;
+  text-align: justify;
+}
+article p + ul,
+article p + ol {
+  margin-top: -0.6em;
+}
+article em {
+  font-style: italic;
+}
+article strong {
+  font-weight: bold;
+}
+article hr {
+  clear: both;
+  height: 1px;
+  border: 0;
+  border-top: 1px dotted #d4d4cf;
+  margin: 20px 0;
+  background: none;
+}
+article sup,
+article sub {
+  font-size: .8em;
+}
+article sup {
+  vertical-align: super;
+}
+article sub {
+  vertical-align: sub;
+}
+article a {
+  color: #e73b0e;
+  text-decoration: none;
+}
+article a:hover {
+  text-decoration: underline;
+}
+article img {
+  border: 0;
+}
+article aside.ingredients {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: #efefef;
+}
+@media (min-width: 500px) {
+  article aside.ingredients {
+    float: right;
+    max-width: 20rem;
+    margin-top: 0;
+    margin-left: 2rem;
+  }
+}
+article aside.ingredients > h1 {
+  line-height: 1em;
+  padding-bottom: .5em;
+  margin-top: 0;
+  text-align: center;
+}
+article aside.ingredients > .inner {
+  padding: 0 1.5rem;
+}
+article aside.ingredients > .inner > p:first-child {
+  margin-top: 0;
+}
+article aside.ingredients > .inner > ul {
+  margin-left: 1em;
+}
+article aside.ingredients hr {
+  position: relative;
+  clear: both;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #d4d4cf;
+  margin: 0 0;
+  background: none;
+}
+article aside.ingredients hr:after {
+  content: '';
+  position: absolute;
+  width: .7em;
+  height: .7em;
+  border: 2px solid #d4d4cf;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f4f4f4;
+}
+article aside.ingredients hr:first-child {
+  margin-bottom: 1.5rem;
+}
+article aside.ingredients hr:last-child {
+  margin-top: 1.5rem;
+}
+article .post-date {
+  font-style: italic;
+  opacity: .5;
+}
+article .recipe-credits {
+  font-size: .8rem;
+  opacity: .7;
+  font-style: italic;
+}
+article .recipe-credits a {
+  color: inherit;
+  text-decoration: none;
+}
+article.post ul {
+  margin-left: 2em;
+}
+article.post ul li:before {
+  content: '-';
+  position: absolute;
+  margin-left: -1em;
+}
+article.introduction {
+  margin: 2.8rem 0;
+  font-size: 1.4em;
+}
+ul.post-meta {
+  overflow: hidden;
+}
+ul.post-meta li {
+  float: left;
+}
+ul.post-meta li > a {
+  color: inherit;
+  text-decoration: none;
+}
+ul.post-meta li > a:hover {
+  text-decoration: underline;
+}
+ul.post-meta li.tag {
+  position: relative;
+  padding-right: .5em;
+  padding-left: 1.3em;
+}
+ul.post-meta li.tag:before {
+  position: absolute;
+  font-family: "Material Icons";
+  content: '\e892';
+  left: 0;
+}
+.noResults {
+  opacity: .5;
+  font-size: 1.5rem;
+  line-height: 2.0rem;
+}
+html,
+body,
+input,
+select,
+textarea {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+div.container.top {
+  display: none;
+}
+div.container.title {
+  background: none !important;
+}
+div.container.title > * {
+  display: none;
+}
+div.container.title > .inner {
+  display: block;
+}
+div.container.title h1 {
+  font-size: 2rem;
+  margin: .5em 0;
+}
+ul.post-meta > li {
+  margin-right: 1em;
+}
+main.container > .inner > * {
+  display: none;
+}
+main.container > .inner > article.post {
+  display: block;
+}
+footer {
+  clear: both;
+  text-align: center;
+  margin-top: 2rem;
+}
+footer * {
+  color: inherit;
+  text-decoration: none;
+}

@@ -35,13 +35,15 @@ header
   > .container.title
   {
     position: relative;
-    height: 50vh;
-    min-height: 7rem;
+    height: 36vw;
+    max-height: ~"calc(100vh - @{menu-height})";
 
+    min-height: 10rem;
+
+    background-image: url("../img/pexels-photo-62097.jpeg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-position-y: 70%;
 
     text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
 
@@ -127,18 +129,35 @@ header
 
     nav
     {
+      @shadow-size: 5em;
+      @menu-size: 30em;
       box-sizing: border-box;
       position: fixed;
 
-      background: #212121;
-      box-shadow: 0 0 5em 0 rgba(0,0,0,0.75);
+      background: @text-color;
+      box-shadow: 0 0 @shadow-size 0 rgba(0,0,0,0.75);
       color: white;
       cursor: default;
 
-      left: -25em;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      left: -@menu-size - @shadow-size;
       top: 0;
       bottom: 0;
-      width: 20em;
+      width: @menu-size;
+      max-width: 100%;
+
+      //@media(max-width:480px)
+      //{
+      //  &
+      //  {
+      //    width: 100%;
+      //    left: ~"calc(-100% - 5em)";
+      //    transition: none;
+      //  }
+      //}
+
       transition: left .35s;
 
       z-index: 22;

@@ -21,12 +21,13 @@ header > .container.top a.site-title span + span {
 }
 header > .container.title {
   position: relative;
-  height: 50vh;
-  min-height: 7rem;
+  height: 36vw;
+  max-height: calc(100vh - 3.5rem);
+  min-height: 10rem;
+  background-image: url("../img/pexels-photo-62097.jpeg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-position-y: 70%;
   text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
   border-bottom: solid 1px #bdcbd1;
 }
@@ -87,10 +88,13 @@ header label.menu-toggle nav {
   box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.75);
   color: white;
   cursor: default;
-  left: -25em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  left: -35em;
   top: 0;
   bottom: 0;
-  width: 20em;
+  width: 30em;
+  max-width: 100%;
   transition: left .35s;
   z-index: 22;
   padding: 1.5em 0;

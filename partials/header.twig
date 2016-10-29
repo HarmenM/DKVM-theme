@@ -1,4 +1,8 @@
-<div class="container title" {% if image is defined %}style="background-image: url('{{ image|thumbnail(1920, 0) }}')" {% endif %}>
+<div class="container title"
+     {% if image is defined %} style="
+            background-image: url('{{ image|thumbnail(1920, 0) }}');
+            {% if imageVerticalAlignment is not empty %}background-position-y: {{ imageVerticalAlignment }}{% endif %}
+        "{% endif %}>
     <div class="inner">
         <div class="title-block">
             {{ include('partials/meta_listing.twig') }}
