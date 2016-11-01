@@ -44,6 +44,26 @@
 
         box-sizing: content-box;
 
+        @media(max-width:400px)
+        {
+          margin-bottom: @vertical-margin/2;
+          float: none;
+          //margin-left: auto;
+          //margin-right: auto;
+          width: 100px;
+
+          border-width: 5px;
+        }
+
+        @media(max-width:600px)
+        {
+          //float: none;
+          //margin-bottom: @vertical-margin;
+          width: 100px;
+
+          border-width: 5px;
+        }
+
         > div.none:after
         {
           font-size: 5rem;

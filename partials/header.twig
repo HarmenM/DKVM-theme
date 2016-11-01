@@ -1,4 +1,9 @@
-<div class="container title"
+{%- if image is empty -%}
+    {%- set headerClass = random(theme.headerdefaultimages) -%}
+    {%- set imageCredits = theme.headercredits -%}
+{%- endif -%}
+
+<div class="container title{% if headerClass is not empty %} {{ headerClass }}{% endif %}"
      {% if image is defined %} style="
             background-image: url('{{ image|thumbnail(1920, 0) }}');
             {% if imageVerticalAlignment is not empty %}background-position-y: {{ imageVerticalAlignment }}{% endif %}
@@ -9,7 +14,9 @@
             <h1 class="post-title">{{ title }}</h1>
         </div>
     </div>
-    {% if imageCredits is not empty %}
-        <div class="image-credits">{{ imageCredits }}</div>
+    {% if imageCredits is empty %}
+        <div class="toggleHeader" data-toggle="tooltip" data-placement="left" title="Vergroot/verklein de foto"></div>
+    {% else %}
+        <div class="image-credits">{{ imageCredits |raw }}</div>
     {% endif %}
 </div>

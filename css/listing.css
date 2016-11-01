@@ -24,6 +24,20 @@
   margin-right: 2rem;
   box-sizing: content-box;
 }
+@media (max-width: 400px) {
+  .listing > article > a > div.recipe-thumb {
+    margin-bottom: 1rem;
+    float: none;
+    width: 100px;
+    border-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  .listing > article > a > div.recipe-thumb {
+    width: 100px;
+    border-width: 5px;
+  }
+}
 .listing > article > a > div.recipe-thumb > div.none:after {
   font-size: 5rem;
 }

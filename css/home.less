@@ -129,10 +129,43 @@ article.home
 
             &:hover
             {
-              box-shadow: 0 0 .5em 0 rgba(0, 0, 0, .5);
+              box-shadow: 0 0 .5em 0 fade(@heading-color, 50%);
             }
           }
         }
+      }
+    }
+  }
+
+  section.toc
+  {
+    text-align: center;
+
+    a
+    {
+      position: relative;
+      display: inline-block;
+      padding: .3em .8em;
+      padding-right: .8em + 1em;
+      //background: @background-color;
+      border: 1px solid @heading-color;
+      color: @heading-color;
+      border-radius: .3em;
+      text-decoration: none;
+
+      &:hover
+      {
+        box-shadow: 0 0 .5em 0 fade(@heading-color, 20%);
+      }
+
+      &:after
+      {
+        font-family: "Material Icons";
+        content: '\e409';
+        position: absolute;
+        right: .5em;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }

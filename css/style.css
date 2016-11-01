@@ -21,7 +21,8 @@ html,
 body,
 input,
 select,
-textarea {
+textarea,
+.tooltip {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   line-height: 20px;
@@ -118,12 +119,34 @@ header > .container.title {
   height: 36vw;
   max-height: calc(100vh - 3.5rem);
   min-height: 10rem;
-  background-image: url("../img/pexels-photo-62097.jpeg");
+  transition: all 800ms ease-in-out;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
+  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.5);
   border-bottom: solid 1px #bdcbd1;
+}
+header > .container.title.maximized {
+  height: 100vh;
+  max-height: 100vh;
+}
+header > .container.title.default-01 {
+  background-image: url("../img/header/01.jpg");
+}
+header > .container.title.default-02 {
+  background-image: url("../img/header/02.jpg");
+}
+header > .container.title.default-03 {
+  background-image: url("../img/header/03.jpg");
+}
+header > .container.title.default-04 {
+  background-image: url("../img/header/04.jpg");
+}
+header > .container.title.default-05 {
+  background-image: url("../img/header/05.jpg");
+}
+header > .container.title.default-06 {
+  background-image: url("../img/header/06.jpg");
 }
 header > .container.title:before {
   content: '';
@@ -132,14 +155,17 @@ header > .container.title:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 100%);
 }
 header > .container.title > .inner {
   position: relative;
   height: 100%;
+  overflow: hidden;
 }
 header > .container.title > .inner .title-block {
   position: absolute;
+  left: 2rem;
+  right: 2rem;
   bottom: 1.5rem;
   font-family: 'Roboto Slab', serif;
   color: white;
@@ -148,6 +174,16 @@ header > .container.title > .inner .title-block {
 header > .container.title h1 {
   font-size: 3rem;
   line-height: 1.2em;
+}
+@media (max-width: 480px) {
+  header > .container.title h1 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  header > .container.title ul.post-meta {
+    font-size: .8rem;
+  }
 }
 header > .container.title ul.post-meta li.category {
   margin-right: 1em;
@@ -231,6 +267,10 @@ header label.menu-toggle nav li a.divider {
   color: transparent;
   cursor: default;
 }
+header label.menu-toggle nav li a.divider:hover {
+  background: inherit;
+  color: inherit;
+}
 header label.menu-toggle input {
   display: none;
 }
@@ -309,6 +349,25 @@ header .image-credits {
 header .image-credits a {
   color: inherit;
   text-decoration: none;
+}
+header .toggleHeader {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+header .toggleHeader:after {
+  content: '\e56b';
+  font-family: "Material Icons";
+  color: white;
+  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.6);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  transform: translate(-50%, -50%);
+  text-align: right;
 }
 article > .container {
   overflow: hidden;
@@ -391,7 +450,7 @@ article sub {
   vertical-align: sub;
 }
 article a {
-  color: #e73b0e;
+  color: #661400;
   text-decoration: none;
 }
 article a:hover {
@@ -509,6 +568,14 @@ ul.post-meta li.tag:before {
   font-size: 1.5rem;
   line-height: 2.0rem;
 }
+ul.toc {
+  column-count: 2;
+  column-gap: 2rem;
+  column-span: 2;
+}
+ul.toc li {
+  margin: .5em 0;
+}
 .listing > article:after {
   content: '';
   display: block;
@@ -534,6 +601,20 @@ ul.post-meta li.tag:before {
   float: left;
   margin-right: 2rem;
   box-sizing: content-box;
+}
+@media (max-width: 400px) {
+  .listing > article > a > div.recipe-thumb {
+    margin-bottom: 1rem;
+    float: none;
+    width: 100px;
+    border-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  .listing > article > a > div.recipe-thumb {
+    width: 100px;
+    border-width: 5px;
+  }
 }
 .listing > article > a > div.recipe-thumb > div.none:after {
   font-size: 5rem;
@@ -719,6 +800,89 @@ section.pagination > ul > li.disabled > a {
 section.pagination > ul > li.disabled > a:hover {
   text-decoration: none;
 }
+.tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  font-size: .85rem;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+.tooltip.in {
+  opacity: 1;
+}
+.tooltip.top {
+  margin-top: -3px;
+  padding: 5px 0;
+}
+.tooltip.right {
+  margin-left: 3px;
+  padding: 0 5px;
+}
+.tooltip.bottom {
+  margin-top: 3px;
+  padding: 5px 0;
+}
+.tooltip.left {
+  margin-left: -3px;
+  padding: 0 5px;
+}
+.tooltip-inner {
+  max-width: 200px;
+  padding: .8em;
+  color: #ffffff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 4px;
+}
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: rgba(0, 0, 0, 0.85);
+}
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: rgba(0, 0, 0, 0.85);
+}
+.tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: rgba(0, 0, 0, 0.85);
+}
+.tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: rgba(0, 0, 0, 0.85);
+}
 article.home section {
   margin: 2em 0;
 }
@@ -809,7 +973,31 @@ article.home section.catsAndTags > div ul > li > a {
   text-decoration: none;
 }
 article.home section.catsAndTags > div ul > li > a:hover {
-  box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0.5em 0 rgba(38, 50, 56, 0.5);
+}
+article.home section.toc {
+  text-align: center;
+}
+article.home section.toc a {
+  position: relative;
+  display: inline-block;
+  padding: .3em .8em;
+  padding-right: 1.8em;
+  border: 1px solid #263238;
+  color: #263238;
+  border-radius: .3em;
+  text-decoration: none;
+}
+article.home section.toc a:hover {
+  box-shadow: 0 0 0.5em 0 rgba(38, 50, 56, 0.2);
+}
+article.home section.toc a:after {
+  font-family: "Material Icons";
+  content: '\e409';
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  transform: translateY(-50%);
 }
 article.home section.recipes-grid.featured > ul {
   justify-content: center;

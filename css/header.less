@@ -40,12 +40,29 @@ header
 
     min-height: 10rem;
 
-    background-image: url("../img/pexels-photo-62097.jpeg");
+    transition: all 800ms ease-in-out;
+
+    &.maximized
+    {
+      height: 100vh;
+      max-height: 100vh;
+    }
+
+    &.default-01 {  background-image: url("../img/header/01.jpg");  }
+    &.default-02 {  background-image: url("../img/header/02.jpg");  }
+    &.default-03 {  background-image: url("../img/header/03.jpg");  }
+    &.default-04 {  background-image: url("../img/header/04.jpg");  }
+    &.default-05 {  background-image: url("../img/header/05.jpg");  }
+    &.default-06 {  background-image: url("../img/header/06.jpg");  }
+    //&.default-07 {  background-image: url("../img/header/07.jpg");  }
+    //&.default-08 {  background-image: url("../img/header/08.jpeg");  }
+
+
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 
-    text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
+    text-shadow: 2px 2px 6px rgba(15, 15, 15, .5);
 
     border-bottom: solid 1px lighten(@menu-items-color, 30%);
 
@@ -58,17 +75,20 @@ header
       right: 0;
       bottom: 0;
 
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 50%,rgba(0,0,0, .7) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 100%)
     }
 
     > .inner
     {
       position: relative;
       height: 100%;
+      overflow: hidden;
 
       .title-block
       {
         position: absolute;
+        left: @container-horizontal-padding;
+        right: @container-horizontal-padding;
         bottom: 1.5rem;
 
         font-family: 'Roboto Slab', serif;
@@ -80,13 +100,21 @@ header
     h1
     {
       font-size: 3rem;
-
       line-height: 1.2em;
+
+      @media(max-width:480px)
+      {
+          font-size: 1.5rem;
+      }
+
     }
 
     ul.post-meta
     {
-      //@include responsive-font(1vw, 14px, 50px);
+      @media(max-width:480px)
+      {
+        font-size: .8rem;
+      }
 
       li
       {
@@ -148,16 +176,6 @@ header
       width: @menu-size;
       max-width: 100%;
 
-      //@media(max-width:480px)
-      //{
-      //  &
-      //  {
-      //    width: 100%;
-      //    left: ~"calc(-100% - 5em)";
-      //    transition: none;
-      //  }
-      //}
-
       transition: left .35s;
 
       z-index: 22;
@@ -213,6 +231,12 @@ header
             font-size: 0;
             color: transparent;
             cursor: default;
+
+            &:hover
+            {
+              background: inherit;
+              color: inherit;
+            }
           }
         }
       }
@@ -325,5 +349,32 @@ header
       color: inherit;
       text-decoration: none;
     }
+  }
+
+  .toggleHeader
+  {
+      position: absolute;
+      z-index: 1;
+
+      top: 1rem;
+      right: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+
+      &:after
+      {
+        content: '\e56b';
+        font-family: "Material Icons";
+        color: white;
+        text-shadow: 2px 2px 6px rgba(15, 15, 15, .6);
+        cursor: pointer;
+
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        transform: translate(-50%, -50%);
+        //top: 50%;
+        //left: 50%;
+        text-align: right;
+      }
   }
 }

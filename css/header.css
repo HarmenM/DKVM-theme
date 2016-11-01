@@ -24,12 +24,34 @@ header > .container.title {
   height: 36vw;
   max-height: calc(100vh - 3.5rem);
   min-height: 10rem;
-  background-image: url("../img/pexels-photo-62097.jpeg");
+  transition: all 800ms ease-in-out;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
+  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.5);
   border-bottom: solid 1px #bdcbd1;
+}
+header > .container.title.maximized {
+  height: 100vh;
+  max-height: 100vh;
+}
+header > .container.title.default-01 {
+  background-image: url("../img/header/01.jpg");
+}
+header > .container.title.default-02 {
+  background-image: url("../img/header/02.jpg");
+}
+header > .container.title.default-03 {
+  background-image: url("../img/header/03.jpg");
+}
+header > .container.title.default-04 {
+  background-image: url("../img/header/04.jpg");
+}
+header > .container.title.default-05 {
+  background-image: url("../img/header/05.jpg");
+}
+header > .container.title.default-06 {
+  background-image: url("../img/header/06.jpg");
 }
 header > .container.title:before {
   content: '';
@@ -38,14 +60,17 @@ header > .container.title:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 100%);
 }
 header > .container.title > .inner {
   position: relative;
   height: 100%;
+  overflow: hidden;
 }
 header > .container.title > .inner .title-block {
   position: absolute;
+  left: 2rem;
+  right: 2rem;
   bottom: 1.5rem;
   font-family: 'Roboto Slab', serif;
   color: white;
@@ -54,6 +79,16 @@ header > .container.title > .inner .title-block {
 header > .container.title h1 {
   font-size: 3rem;
   line-height: 1.2em;
+}
+@media (max-width: 480px) {
+  header > .container.title h1 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  header > .container.title ul.post-meta {
+    font-size: .8rem;
+  }
 }
 header > .container.title ul.post-meta li.category {
   margin-right: 1em;
@@ -137,6 +172,10 @@ header label.menu-toggle nav li a.divider {
   color: transparent;
   cursor: default;
 }
+header label.menu-toggle nav li a.divider:hover {
+  background: inherit;
+  color: inherit;
+}
 header label.menu-toggle input {
   display: none;
 }
@@ -215,4 +254,23 @@ header .image-credits {
 header .image-credits a {
   color: inherit;
   text-decoration: none;
+}
+header .toggleHeader {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+header .toggleHeader:after {
+  content: '\e56b';
+  font-family: "Material Icons";
+  color: white;
+  text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.6);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  transform: translate(-50%, -50%);
+  text-align: right;
 }

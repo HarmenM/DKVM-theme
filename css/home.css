@@ -88,7 +88,31 @@ article.home section.catsAndTags > div ul > li > a {
   text-decoration: none;
 }
 article.home section.catsAndTags > div ul > li > a:hover {
-  box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0.5em 0 rgba(38, 50, 56, 0.5);
+}
+article.home section.toc {
+  text-align: center;
+}
+article.home section.toc a {
+  position: relative;
+  display: inline-block;
+  padding: .3em .8em;
+  padding-right: 1.8em;
+  border: 1px solid #263238;
+  color: #263238;
+  border-radius: .3em;
+  text-decoration: none;
+}
+article.home section.toc a:hover {
+  box-shadow: 0 0 0.5em 0 rgba(38, 50, 56, 0.2);
+}
+article.home section.toc a:after {
+  font-family: "Material Icons";
+  content: '\e409';
+  position: absolute;
+  right: .5em;
+  top: 50%;
+  transform: translateY(-50%);
 }
 article.home section.recipes-grid.featured > ul {
   justify-content: center;

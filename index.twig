@@ -31,7 +31,7 @@
                 <ul>
                     {% for item in list %}
                         <li>
-                            <a href="{{ item.link }}" title="Bekijk alle recepten in {{ item.name }}">
+                            <a href="{{ paths.root }}categories/{{ item.slug | slug}}" data-toggle="tooltip" title="Bekijk alle recepten in {{ item.name }}">
                                 {{ item.name }}
                             </a>
                         </li>
@@ -44,13 +44,17 @@
                 <ul>
                     {% for item in list %}
                         <li>
-                            <a href="{{ item.link }}" title="Bekijk alle recepten getagd met {{ item.name }}">
+                            <a href="{{ paths.root }}tags/{{ item.slug | slug}}" data-toggle="tooltip" title="Bekijk alle recepten getagd met {{ item.name }}">
                                 {{ item.name }}
                             </a>
                         </li>
                     {% endfor %}
                 </ul>
             </div>
+        </section>
+
+        <section class="toc">
+            <a href="{{ paths.root }}inhoudsopgave">Bekijk alle recepten</a>
         </section>
 
         <section class="latest">
@@ -60,6 +64,10 @@
                     {{ include("partials/listing_item.twig") }}
                 {% endfor %}
             </div>
+        </section>
+
+        <section class="toc">
+            <a href="{{ paths.root }}inhoudsopgave">Bekijk alle recepten</a>
         </section>
     </article>
 {% endblock main %}

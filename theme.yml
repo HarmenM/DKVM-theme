@@ -5,3 +5,12 @@ page_template: record.twig
 listing_template: listing.twig
 search_results_template: search.twig
 notfound: notfound.twig
+
+headerdefaultimages:
+ - default-01
+ - default-02
+ - default-03
+ - default-04
+ - default-05
+ - default-06
+headercredits: "<a href='https://www.pexels.com'>Afbeelding afkomstig van Pexels</a>"

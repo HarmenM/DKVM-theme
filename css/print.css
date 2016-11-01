@@ -82,7 +82,7 @@ article sub {
   vertical-align: sub;
 }
 article a {
-  color: #e73b0e;
+  color: #661400;
   text-decoration: none;
 }
 article a:hover {
@@ -199,6 +199,14 @@ ul.post-meta li.tag:before {
   opacity: .5;
   font-size: 1.5rem;
   line-height: 2.0rem;
+}
+ul.toc {
+  column-count: 2;
+  column-gap: 2rem;
+  column-span: 2;
+}
+ul.toc li {
+  margin: .5em 0;
 }
 html,
 body,

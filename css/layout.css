@@ -19,7 +19,8 @@ html,
 body,
 input,
 select,
-textarea {
+textarea,
+.tooltip {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   line-height: 20px;

@@ -1,0 +1,30 @@
+{% extends 'partials/master.twig' %}
+
+{% setcontent items = 'recepten' orderby 'title' %}
+{% set title = "Inhoudsopgave" %}
+
+{% setcontent header = 'blocks/inhoudsopgave' %}
+{% if header.image is not empty %}
+    {% set image = header.image %}
+    {% set imageCredits = header.imagecredits %}
+{% endif %}
+
+
+{% block main %}
+    {% if header.content is not empty %}
+        <article class="introduction">
+            {{ header.content }}
+        </article>
+    {% endif %}
+
+    <article>
+        <ul class="toc">
+         {% for item in items %}
+             <li>
+                 <a href="{{ item.link}}">{{ item.title }}</a>
+             </li>
+         {% endfor %}
+        </ul>
+    </article>
+
+{% endblock main %}
