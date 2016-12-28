@@ -10,6 +10,18 @@
         <title>{{ app.config.get('general/sitename') }} | {{ title }}</title>
         <link rel="stylesheet" href="{{ paths.theme }}css/style.css" media="screen">
         <link rel="stylesheet" href="{{ paths.theme }}css/print.css" media="print">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ paths.theme }}/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="{{ paths.theme }}/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="{{ paths.theme }}/favicons/favicon-194x194.png" sizes="194x194">
+        <link rel="icon" type="image/png" href="{{ paths.theme }}/favicons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="{{ paths.theme }}/favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="{{ paths.theme }}/favicons/manifest.json">
+        <link rel="mask-icon" href="{{ paths.theme }}/favicons/safari-pinned-tab.svg" color="#2c5265">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-TileImage" content="{{ paths.theme }}/favicons/mstile-144x144.png">
+        <meta name="theme-color" content="#2c5265">
+
         {% block headincludes %}
         {% endblock headincludes %}
     </head>
