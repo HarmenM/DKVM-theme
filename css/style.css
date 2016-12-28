@@ -125,7 +125,7 @@ header > .container.title {
   text-shadow: 2px 2px 6px rgba(15, 15, 15, 0.75);
   border-bottom: solid 1px #bdcbd1;
 }
-@media all and (orientation: portrait) and (min-height: 620px) {
+@media all and (orientation: portrait) and (min-height: 480px) {
   header > .container.title {
     min-height: 20rem;
   }
