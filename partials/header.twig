@@ -4,7 +4,7 @@
 {%- endif -%}
 
 <div class="container title{% if headerClass is not empty %} {{ headerClass }}{% endif %}"
-     {% if image is defined %} style="
+     {% if image is not empty %} style="
             background-image: url('{{ image|thumbnail('cover') }}');
             {% if imageVerticalAlignment is not empty %}background-position-y: {{ imageVerticalAlignment }}{% endif %}
         "{% endif %}>

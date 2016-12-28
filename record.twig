@@ -14,6 +14,8 @@
             </time>
         </div>
 
+        <img src="{{ image|thumbnail('cover') }}" class="printOnly" width="25%" />
+
         {% if record.ingredients is not empty %}
             <aside class="ingredients">
                 <hr />
@@ -23,6 +25,10 @@
                 </div>
                 <hr />
             </aside>
+        {% endif %}
+
+        {% if image is not empty %}
+
         {% endif %}
 
         {{ record.body }}

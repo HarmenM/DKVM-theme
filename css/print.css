@@ -208,6 +208,9 @@ ul.toc {
 ul.toc li {
   margin: .5em 0;
 }
+.printOnly {
+  display: none;
+}
 html,
 body,
 input,
@@ -241,6 +244,9 @@ main.container > .inner > * {
 }
 main.container > .inner > article.post {
   display: block;
+}
+main.container > .inner > article.post img.printOnly {
+  display: inline-block;
 }
 footer {
   clear: both;
