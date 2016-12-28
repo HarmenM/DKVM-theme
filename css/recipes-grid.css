@@ -4,6 +4,7 @@ section.recipes-grid {
 section.recipes-grid > h1 {
   font-size: 2rem;
   margin: 2rem 0;
+  font-family: 'Roboto Slab', serif;
 }
 section.recipes-grid > ul {
   display: flex;

@@ -103,7 +103,8 @@
     > ul.post-meta
     {
       font-style: italic;
-      opacity: .75;
+      //opacity: .75;
+      color: fade(@title-color, 75%);
 
       li.category
       {
@@ -118,7 +119,7 @@
 
       li.tag:before
       {
-        color: @title-color;
+        color: fade(@title-color, 75%);
       }
     }
   }

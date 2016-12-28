@@ -22,8 +22,8 @@ select,
 textarea,
 .tooltip {
   font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 24px;
   color: #212121;
 }
 @media (min-width: 700px) {
