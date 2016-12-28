@@ -6,7 +6,7 @@
             <a href="{{ record.link }}">
                 <div class="recipe-thumb">
                     {% if record.image is not empty %}
-                        <div style="background-image: url('{{ record.image|thumbnail(350, 250 ) }}')"></div>
+                        <div style="background-image: url('{{ record.image|thumbnail('grid') }}')"></div>
                     {% else %}
                         <div class="none"></div>
                     {% endif %}

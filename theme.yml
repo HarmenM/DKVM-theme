@@ -14,3 +14,14 @@ headerdefaultimages:
  - default-05
  - default-06
 headercredits: "<a href='https://www.pexels.com'>Afbeelding afkomstig van Pexels</a>"
+thumbnails:
+    aliases:
+        listing:
+            size: [200, 150]
+            cropping: crop
+        grid:
+            size: [350, 250]
+            cropping: crop
+        cover:
+            size: [1920, 0]
+            cropping: crop
