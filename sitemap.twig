@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for entry in entries %}
+        {% if entry.link is defined %}
+            <url>
+                <loc>{{ app.paths.hosturl }}{{ entry.link }}</loc>
+                {% if entry.link == "/" %}
+                    {% setcontent record = app.config.get('general/homepage') returnsingle %}
+                {% else %}
+                    {% set record = entry.record %}
+                {% endif %}
+                {% if record.datechanged is defined %}
+                    <lastmod>{{ record.datechanged|date('Y-m-d\\TH:i:sP') }}</lastmod>
+                {% endif %}
+                <changefreq>weekly</changefreq>
+                {% if entry.link == "/" %}
+                    <priority>1</priority>
+                {% else %}
+                    <priority>0.8</priority>
+                {% endif %}
+                {% for key,value in record.values %}
+                    {% if record.fieldtype(key) == "image" and value|first is not empty %}
+                        <image:image>
+                            <image:loc>{{ app.paths.hosturl }}{{ value|first|thumbnail('grid') }}</image:loc>
+                            {% if value.alt|default() %}
+                                <image:title><![CDATA[{{ value.alt }}]]></image:title>
+                            {% endif %}
+                            {% if value.title|default() %}
+                                <image:caption><![CDATA[{{ value.title }}]]></image:caption>
+                            {% endif %}
+                        </image:image>
+                    {% endif %}
+                {% endfor %}
+            </url>
+        {% endif %}
+    {% endfor %}
+</urlset>
