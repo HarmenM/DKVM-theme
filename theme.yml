@@ -22,6 +22,18 @@ thumbnails:
         grid:
             size: [350, 250]
             cropping: crop
-        cover:
+        cover-xs:
+            size: [640, 0]
+            cropping: crop
+        cover-s:
+            size: [1024, 0]
+            cropping: crop
+        cover-m:
+            size: [1280, 0]
+            cropping: crop
+        cover-l:
+            size: [1680, 0]
+            cropping: crop
+        cover-xl:
             size: [1920, 0]
             cropping: crop
