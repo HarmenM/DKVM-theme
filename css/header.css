@@ -7,17 +7,21 @@ header > .container.top > .inner {
   padding: 0 8rem;
 }
 header > .container.top a.site-title {
-  display: block;
+  display: inline-block;
   height: 3.5rem;
   line-height: 3.5rem;
   color: #455a64;
   text-decoration: none;
   font-size: 1.4em;
-  overflow: hidden;
+  white-space: nowrap;
 }
 header > .container.top a.site-title span + span {
   opacity: .7;
-  white-space: nowrap;
+}
+@media (max-width: 450px) {
+  header > .container.top a.site-title span + span {
+    display: none;
+  }
 }
 header > .container.title {
   position: relative;

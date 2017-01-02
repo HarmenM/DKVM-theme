@@ -16,18 +16,22 @@ header
 
     a.site-title
     {
-      display: block;
+      display: inline-block;
       height: @menu-height;
       line-height: @menu-height;
       color: @title-color;
       text-decoration: none;
       font-size: 1.4em;
-      overflow: hidden;
+      white-space: nowrap;
 
       span + span
       {
         opacity: .7;
-        white-space: nowrap;
+
+        @media(max-width:450px)
+        {
+          display: none;
+        }
       }
     }
   }
