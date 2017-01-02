@@ -10,8 +10,28 @@
 
         <title>{{ app.config.get('general/sitename') }} | {{ title }}</title>
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
         <link rel="stylesheet" href="{{ paths.theme }}css/style.css" media="screen">
         <link rel="stylesheet" href="{{ paths.theme }}css/print.css" media="print">
+        {% if image is not empty %}
+            <style>
+                @media only screen and (max-device-width: 1280px) {
+                    #headerImage { background-image: url('{{ image|thumbnail('cover-m') }}') }
+                }
+
+                @media only screen and (min-device-width: 1281px) and (max-device-width: 1680px) {
+                    #headerImage { background-image: url('{{ image|thumbnail('cover-l') }}') }
+                }
+
+                @media only screen and (min-device-width: 1681px) {
+                    #headerImage { background-image: url('{{ image|thumbnail('cover-xl') }}') }
+                }
+
+                {% if imageVerticalAlignment is not empty %}
+                #headerImage { background-position-y: {{ imageVerticalAlignment }} }
+                {% endif %}
+            </style>
+        {% endif %}
 
         <link rel="apple-touch-icon" sizes="180x180" href="{{ paths.theme }}/favicons/apple-touch-icon.png">
         <link rel="icon" type="image/png" href="{{ paths.theme }}/favicons/favicon-32x32.png" sizes="32x32">

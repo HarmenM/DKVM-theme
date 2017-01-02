@@ -1,6 +1,8 @@
 @import 'variables';
 @import 'https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:400,400i,700|Material+Icons';
 
+@max-site-width: 1920px;
+
 html
 {
   height: 100%;
@@ -8,6 +10,11 @@ html
 
 html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  @media(min-width:@max-site-width)
+  {
+    background: lighten(@text-color, 10%);
+  }
 }
 
 body
@@ -21,6 +28,15 @@ body
   padding-bottom: @menu-height;
   box-sizing: border-box;
   min-height: 100%;
+
+  @media(min-width:@max-site-width)
+  {
+    max-width: @max-site-width;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 10px 32px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 32px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 32px 0px rgba(0,0,0,0.75);
+  }
 }
 
 html, body, input, select, textarea, .tooltip
@@ -29,21 +45,13 @@ html, body, input, select, textarea, .tooltip
   font-size: 14px;
   line-height: 24px;
   color: @text-color;
-}
 
-@media(min-width:700px)
-{
-  html, body, input, select, textarea
-  {
+  @media(min-width:700px) {
     font-size: 16px;
     line-height: 24px;
   }
-}
 
-@media(min-width:1025px)
-{
-  html, body, input, select, textarea
-  {
+  @media(min-width:1025px) {
     font-size: 18px;
     line-height: 28px;
   }
@@ -55,7 +63,11 @@ html, body, input, select, textarea, .tooltip
   max-width: 60rem;
 
   padding: 0 @container-horizontal-padding;
-  //overflow: hidden;
+}
+
+article, aside, footer, header, main, nav, section
+{
+  display: block;
 }
 
 main

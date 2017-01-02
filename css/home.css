@@ -49,14 +49,14 @@ article.home > section.search input + i:after {
   transform: translate(-50%, -50%);
 }
 article.home section.catsAndTags {
-  display: table;
+  display: flex;
+  flex-flow: row wrap;
   width: 100%;
 }
 article.home section.catsAndTags > div {
   width: 50%;
   box-sizing: border-box;
-  height: 100%;
-  display: table-cell;
+  flex: 1 1 0;
   padding: .5em 0;
 }
 article.home section.catsAndTags > div > h1 {

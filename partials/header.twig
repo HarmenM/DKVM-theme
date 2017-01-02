@@ -16,30 +16,3 @@
         <div class="image-credits">{{ imageCredits |raw }}</div>
     {% endif %}
 </div>
-{% if image is not empty %}
-<style>
-    {#@media only screen and (max-device-width: 640px) {#}
-        {##headerImage { background-image: url('{{ image|thumbnail('cover-xs') }}') }#}
-    {#}#}
-
-    {#@media only screen and (min-device-width: 641px) and (max-device-width: 720px) {#}
-        {##headerImage { background-image: url('{{ image|thumbnail('cover-s') }}') }#}
-    {#}#}
-
-    @media only screen and/* (min-device-width: 721px) and*/ (max-device-width: 1280px) {
-        #headerImage { background-image: url('{{ image|thumbnail('cover-m') }}') }
-    }
-
-    @media only screen and (min-device-width: 1281px) and (max-device-width: 1680px) {
-        #headerImage { background-image: url('{{ image|thumbnail('cover-l') }}') }
-    }
-
-    @media only screen and (min-device-width: 1681px) {
-        #headerImage { background-image: url('{{ image|thumbnail('cover-xl') }}') }
-    }
-
-    {% if imageVerticalAlignment is not empty %}
-    #headerImage { background-position-y: {{ imageVerticalAlignment }} }
-    {% endif %}
-</style>
-{% endif %}

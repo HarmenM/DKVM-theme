@@ -7,6 +7,11 @@ html {
 html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+@media (min-width: 1920px) {
+  html {
+    background: #3b3b3b;
+  }
+}
 body {
   background: #f4f4f4;
   -webkit-font-smoothing: antialiased;
@@ -16,6 +21,15 @@ body {
   padding-bottom: 3.5rem;
   box-sizing: border-box;
   min-height: 100%;
+}
+@media (min-width: 1920px) {
+  body {
+    max-width: 1920px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 10px 32px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 32px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 32px 0px rgba(0, 0, 0, 0.75);
+  }
 }
 html,
 body,
@@ -33,7 +47,8 @@ textarea,
   body,
   input,
   select,
-  textarea {
+  textarea,
+  .tooltip {
     font-size: 16px;
     line-height: 24px;
   }
@@ -43,7 +58,8 @@ textarea,
   body,
   input,
   select,
-  textarea {
+  textarea,
+  .tooltip {
     font-size: 18px;
     line-height: 28px;
   }
@@ -52,6 +68,15 @@ textarea,
   margin: 0 auto;
   max-width: 60rem;
   padding: 0 2rem;
+}
+article,
+aside,
+footer,
+header,
+main,
+nav,
+section {
+  display: block;
 }
 main {
   margin: 2rem 0;
@@ -360,10 +385,13 @@ header .image-credits a {
 header .toggleHeader {
   position: absolute;
   z-index: 1;
+  display: block;
   top: 1rem;
   right: 1rem;
   width: 1.5rem;
   height: 1.5rem;
+  background: transparent;
+  cursor: pointer;
 }
 header .toggleHeader:after {
   content: '\e56b';
@@ -945,14 +973,14 @@ article.home > section.search input + i:after {
   transform: translate(-50%, -50%);
 }
 article.home section.catsAndTags {
-  display: table;
+  display: flex;
+  flex-flow: row wrap;
   width: 100%;
 }
 article.home section.catsAndTags > div {
   width: 50%;
   box-sizing: border-box;
-  height: 100%;
-  display: table-cell;
+  flex: 1 1 0;
   padding: .5em 0;
 }
 article.home section.catsAndTags > div > h1 {

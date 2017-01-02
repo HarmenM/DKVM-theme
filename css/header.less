@@ -363,11 +363,14 @@ header
   {
       position: absolute;
       z-index: 1;
+    display: block;
 
       top: 1rem;
       right: 1rem;
       width: 1.5rem;
       height: 1.5rem;
+    background: transparent;
+    cursor: pointer;
 
       &:after
       {
@@ -380,8 +383,6 @@ header
         font-size: 1.5rem;
         line-height: 1.5rem;
         transform: translate(-50%, -50%);
-        //top: 50%;
-        //left: 50%;
         text-align: right;
       }
   }

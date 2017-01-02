@@ -77,15 +77,15 @@ article.home
 
   section.catsAndTags
   {
-    display: table;
+    display: flex;
+    flex-flow:row wrap;
     width: 100%;
 
     > div
     {
       width: 50%;
       box-sizing: border-box;
-      height: 100%;
-      display: table-cell;
+      flex: 1 1 0;
 
       padding: .5em 0;
 

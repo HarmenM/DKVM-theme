@@ -7,7 +7,7 @@ $('.toggleHeader').on('click', function() {
 
     $('[data-toggle="tooltip"]').tooltip('hide');
 
-    $(document.body).animate({
+    $('html,body').animate({
         'scrollTop': newScrollTop
     }, 800, function() {
         containerElm.removeClass('animating');
